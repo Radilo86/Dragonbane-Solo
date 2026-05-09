@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Mirth & Mayhem v1.6 - Dragonbane Solo/Co-Op</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-parchment: #f4ebd8;
+            --text-dark: #2c241b;
+            --dragon-green: #1a3322;
+            --dragon-gold: #c5a059;
+            --blood-red: #8b0000;
+            --table-light: #fffcf5;
+            --table-alt: #f3ead2;
+        }
+
+        body {
+            background-color: var(--bg-parchment);
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            color: var(--text-dark);
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.45);
+            padding: 40px;
+            border: 2px solid var(--dragon-gold);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--dragon-green);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--dragon-gold);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 0.45em;
+            color: var(--blood-red);
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--dragon-gold);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--table-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--dragon-gold);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--dragon-green);
+            color: var(--dragon-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-alt);
+        }
+
+        .highlight {
+            color: var(--blood-red);
+            font-weight: bold;
+        }
+
+        .rule-box {
+            background-color: rgba(26, 51, 34, 0.08);
+            border-left: 4px solid var(--dragon-green);
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .alert-box {
+            background-color: rgba(139, 0, 0, 0.08);
+            border-left: 4px solid var(--blood-red);
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+        
+        .macro-box {
+            background-color: rgba(197, 160, 89, 0.15);
+            border: 2px dashed var(--dragon-gold);
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+
+        ul { margin-bottom: 0; }
+        .note { font-size: 0.9em; font-style: italic; color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Motor Mirth & Mayhem <span>Dragonbane Solo / Co-Op RPG v1.6 (Epoch Edition)</span></h1>
+
+    <div class="rule-box">
+        <h3>El Bucle de Campaña</h3>
+        <p><strong>La Regla de Oro:</strong> La Ficción va Primero. Usa el manual de <em>Dragonbane</em> para combates y pruebas. Usa este motor solo cuando tengas dudas sobre qué pasa a continuación. Si tienes una idea más divertida o letal que lo que dictan los dados, ¡ignora los dados!</p>
+        <ol>
+            <li><strong>Preparación:</strong> Tira en el Generador de Aventuras. Crea un <strong>Medidor de Progreso</strong>: Corta (3), Media (5), Épica (7). Dibuja tu Reloj de Peligro diario (0/6).</li>
+            <li><strong>Exploración:</strong> Viaja o investiga. <strong>Marca 1 casilla del Medidor</strong> SOLO si superas un obstáculo con riesgo de muerte real o un gasto grave de recursos (PV/WP/Oro). No hay atajos.</li>
+            <li><strong>Clímax:</strong> Al llenar el Medidor, aparece el Jefe o el Objetivo Final en la próxima zona. Recompensas al vencer: 
+                <ul>
+                    <li><em>Corta:</em> 1 Avance.</li>
+                    <li><em>Media:</em> 1 Avance + Botín normal.</li>
+                    <li><em>Épica:</em> 1 Avance + Artefacto Mágico + El Jefe tira con un Boon.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="macro-box">
+        <h3>El Mundo Vivo (Macro-Reglas de Campaña)</h3>
+        <ul>
+            <li><strong>Retirada Táctica:</strong> Si huyes de una mazmorra/combate para no morir, sobrevives. Pero el Medidor de esa misión se reinicia a cero, los enemigos se atrincheran (ganan iniciativa la próxima vez) y el <em>Reloj del Mundo</em> avanza.</li>
+            <li><strong>El Reloj del Mundo (0/4):</strong> Avanza 1 segmento cada vez que huyes, fallas una misión o mueres. Cuando llega a 4, ocurre un <strong>Cataclismo</strong> (una facción maligna destruye una aldea, un área del mapa se vuelve permanentemente letal). Borra el reloj a 0 y altera tu mapa.</li>
+            <li><strong>Legado y Retiro:</strong> Tras completar 3 Misiones Épicas, tu personaje puede retirarse en paz. Tu próximo personaje nuevo empezará la campaña heredando una (1) Reliquia, Arma Mágica o Propiedad del héroe anterior.</li>
+        </ul>
+    </div>
+
+    <h2>1. El Oráculo del Destino (d20)</h2>
+    <p><strong>Tirar bajo es ganar</strong>. <em>Boon</em> para lo probable, <em>Bane</em> para lo improbable. <br>
+    <span class="highlight">Regla de la Soberbia:</span> Solo puedes tener 1 Boon almacenado a la vez. Tirar un 1 usando un Boon previo NO genera un nuevo Boon.</p>
+    
+    <table>
+        <tr><th>d20</th><th>Respuesta</th><th>Efecto Narrativo y Mecánico</th></tr>
+        <tr><td><strong>1</strong></td><td class="highlight">¡Sí, y además!</td><td>Éxito rotundo. Ganas un <strong>Boon</strong> para usarlo cuando quieras.</td></tr>
+        <tr><td>2-6</td><td>Sí.</td><td>Sucede tal cual lo esperabas.</td></tr>
+        <tr><td>7-12</td><td>Sí, pero... <br><em>(Elección del Diablo)</em></td><td><strong>Paga el precio:</strong> AHORA (Pierdes 1d6 PV, 1d6 WP, o adquieres 1 Condición) <strong>O</strong> EN EL FUTURO (Avanzas el Reloj de Peligro +1).</td></tr>
+        <tr><td>13-16</td><td>No, pero...</td><td>Fallas. Obtienes una pista menor, ruta alternativa obvia, o recuperas 1 WP.</td></tr>
+        <tr><td>17-19</td><td>No. <br><em>(Muro de Ladrillo)</em></td><td>Fallo definitivo. Esta aproximación es ahora <strong>imposible</strong> físicamente (ej. la puerta se atasca para siempre). Busca otro método.</td></tr>
+        <tr><td><strong>20</strong></td><td class="highlight">¡No, y además!</td><td>Fallo crítico. El <strong>Reloj avanza (+1)</strong> y sufres un contratiempo letal inmediato.</td></tr>
+    </table>
+
+    <h2>2. Reloj de Peligro (Escalada de Tensión Diaria)</h2>
+    <p>El Reloj tiene 6 segmentos. Cuando llega a 6, tira 1d6, resuelve el evento inmediatamente y reinicia el reloj a 0.</p>
+    <div class="rule-box">
+        <strong>Avanza (+1) con:</strong> Oráculo (20) <strong>|</strong> Fallar Tirada Forzada <strong>|</strong> Elección del Diablo <strong>|</strong> Descanso Corto.<br>
+        <span class="note"><strong>Descanso Largo:</strong> Avanza 1d4. Si llega a 6 mientras duermes, el evento ocurre ANTES de curarte.</span>
+    </div>
+    <table>
+        <tr><th>d6</th><th>Evento de Reloj Lleno (6/6)</th></tr>
+        <tr><td>1</td><td><strong>Emboscada:</strong> Enemigos atacan. Pierdes la iniciativa y sufres un ataque automático.</td></tr>
+        <tr><td>2</td><td><strong>Desgaste:</strong> Equipo clave se daña (Bane al usarlo) o pierdes 1d6 raciones.</td></tr>
+        <tr><td>3</td><td><strong>Trampa Inevitable:</strong> Gasta 1 Turno extra y supera ACROBATICS o BUSHCRAFT o sufre 1d6 daño letal.</td></tr>
+        <tr><td>4</td><td><strong>Terror:</strong> Visión de Sathmog. Supera tirada de WIL o sufre la Condición <em>Scared</em>.</td></tr>
+        <tr><td>5</td><td><strong>Agotamiento:</strong> Adquieres <em>Exhausted</em> permanentemente hasta llegar a una aldea/posada.</td></tr>
+        <tr><td>6</td><td><strong>Némesis:</strong> Un rival, monstruo o patrulla interrumpe violentamente la escena actual.</td></tr>
+    </table>
+
+    <h2>3. Generador de Aventuras (d66)</h2>
+    <table>
+        <tr><th>d66</th><th>Patrón</th><th>Objetivo</th><th>Lugar</th><th>Giro (Caos)</th></tr>
+        <tr><td>11-16</td><td>Erudito/Mago</td><td>Recuperar reliquia</td><td>Ruina Imperial</td><td>El patrón te traicionará</td></tr>
+        <tr><td>21-26</td><td>Cazador local</td><td>Cazar a una bestia</td><td>Pantanos</td><td>La bestia es inteligente/Inocente</td></tr>
+        <tr><td>31-36</td><td>Comerciante</td><td>Rescatar rehén</td><td>Bosque Hierro</td><td>El terreno colapsa/arde</td></tr>
+        <tr><td>41-46</td><td>Caballero del Sol</td><td>Purificar altar</td><td>Minas Enanas</td><td>Un culto ya está allí</td></tr>
+        <tr><td>51-56</td><td>Fantasma/Voz</td><td>Mapear una zona</td><td>Pico Nevado</td><td>Hay gas tóxico/magia salvaje</td></tr>
+        <tr><td>61-66</td><td>Aldeano</td><td>Robar objeto clave</td><td>Cripta Profunda</td><td>Tiempo límite muy estricto</td></tr>
+    </table>
+
+    <h2>4. Combate Co-Op y Tabla de Caos Expandida (d10)</h2>
+    <p>Los monstruos atacan usando sus propias tablas. <strong>Regla de Agro:</strong> Atacan a quien les hizo más daño acumulado. En el Turno 1 (o en empate de daño), atacan al personaje <strong>más cercano en vanguardia</strong>.</p>
+    
+    <div class="alert-box">
+        <strong>Detonante de Caos:</strong> Tira 1d10 abajo <strong>SOLO SI</strong> el monstruo saca un <strong>1 o un 6</strong> en su tabla, <strong>O</strong> si un jugador saca un <strong>20</strong> (Pifia).
+    </div>
+
+    <table>
+        <tr><th>d10</th><th>Evento de Caos en Combate (Mirth & Mayhem)</th></tr>
+        <tr><td>1-2</td><td><strong>Furia Ciega:</strong> El monstruo hace +1d6 daño extra, pero en la siguiente ronda tú atacas con un <em>Boon</em>.</td></tr>
+        <tr><td>3-4</td><td><strong>Terreno Destruido:</strong> El ataque vuela el entorno. Tú y el enemigo quedáis <em>Prone (Tumbados)</em>.</td></tr>
+        <tr><td>5-6</td><td><strong>Arma Voladora:</strong> El impacto es brutal. El arma del jugador o del monstruo vuela a 1d4 metros de distancia.</td></tr>
+        <tr><td>7</td><td><strong>Interferencia:</strong> Un tercer bando (lobos, trasgos, aventureros) entra a la pelea atacando a todos por igual.</td></tr>
+        <tr><td>8</td><td><strong>Sangre Resbaladiza:</strong> El suelo es traicionero. Quien se mueva este turno debe superar <em>Acrobatics</em> o caer Prone.</td></tr>
+        <tr><td>9</td><td><strong>Fuego Amigo:</strong> El monstruo, en su confusión o ceguera, lanza su ataque contra uno de sus propios aliados.</td></tr>
+        <tr><td>10</td><td><strong>Mirth (Comedia):</strong> El monstruo pierde su ataque. Se distrae con algo brillante, se asusta de un pato, o posa absurdamente.</td></tr>
+    </table>
+
+    <h2>5. Chispas Narrativas (d66)</h2>
+    <p>Combina estas palabras para interpretar oráculos, intenciones o pistas oscuras en las ruinas.</p>
+    <table>
+        <tr><th>d66</th><th>Acción (Verbo)</th><th>Tema (Sustantivo)</th></tr>
+        <tr><td>11-16</td><td>Proteger / Destruir</td><td>Corona / Autoridad / Líder</td></tr>
+        <tr><td>21-26</td><td>Traicionar / Unir</td><td>Sangre / Familia / Maldición</td></tr>
+        <tr><td>31-36</td><td>Esconder / Revelar</td><td>Magia / Demonio / Sathmog</td></tr>
+        <tr><td>41-46</td><td>Buscar / Huir</td><td>Arma / Venganza / Reliquia</td></tr>
+        <tr><td>51-56</td><td>Robar / Comprar</td><td>Secreto / Tesoro / Mapa</td></tr>
+        <tr><td>61-66</td><td>Purificar / Corromper</td><td>Promesa / Tiempo / Dragón</td></tr>
+    </table>
+</div>
+
+</body>
+</html>
